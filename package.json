@@ -1,35 +1,25 @@
 {
+  "name": "GameOn app",
+  "version": "1.0.0",
+  "main": "index.js",
+  "description": null,
+  "scripts": {
+    "start": "node api/index.js",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  },
   "dependencies": {
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "react-scripts": "^4.0.0",
     "lucide-react": "0.263.1",
-    "recharts": "latest"
+    "recharts": "latest",
+    "express": "^4.17.1"
   },
   "devDependencies": {
     "@types/react": "^18.0.0",
     "@types/react-dom": "^18.0.0",
     "typescript": "^4.0.0"
-  },
-  "main": "/index.tsx",
-  "name": "yqmsjg",
-  "description": null,
-  "version": "0.0.0",
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
-  }
-}
-{
-  "name": "GameOn app",
-  "version": "1.0.0",
-  "main": "index.js",
-  "scripts": {
-    "start": "node api/index.js"
-  },
-  "dependencies": {
-    "express": "^4.17.1"
   }
 }

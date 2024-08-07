@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 interface Game {
   id: number;
@@ -21,23 +21,23 @@ interface NewGame {
 const App = () => {
   const [games, setGames] = useState<Game[]>([]);
   const [newGame, setNewGame] = useState<NewGame>({
-    sport: 'frisbee',
-    date: '',
-    time: '',
-    location: '',
+    sport: "frisbee",
+    date: "",
+    time: "",
+    location: "",
     playerThreshold: 0,
   });
   const [joiningGame, setJoiningGame] = useState<number | null>(null);
-  const [playerName, setPlayerName] = useState('');
+  const [playerName, setPlayerName] = useState("");
 
   const handleCreateGame = () => {
     const newGameId = games.length + 1;
     setGames([...games, { id: newGameId, ...newGame, players: [] }]);
     setNewGame({
-      sport: 'frisbee',
-      date: '',
-      time: '',
-      location: '',
+      sport: "frisbee",
+      date: "",
+      time: "",
+      location: "",
       playerThreshold: 0,
     });
   };
@@ -56,13 +56,19 @@ const App = () => {
       });
       setGames(updatedGames);
       setJoiningGame(null);
-      setPlayerName('');
+      setPlayerName("");
     }
   };
 
-  const todaysGames = games.filter((game) => game.date === new Date().toISOString().split('T')[0]);
-  const upcomingGames = games.filter((game) => game.date > new Date().toISOString().split('T')[0]);
-  const archivedGames = games.filter((game) => game.date < new Date().toISOString().split('T')[0]);
+  const todaysGames = games.filter(
+    (game) => game.date === new Date().toISOString().split("T")[0],
+  );
+  const upcomingGames = games.filter(
+    (game) => game.date > new Date().toISOString().split("T")[0],
+  );
+  const archivedGames = games.filter(
+    (game) => game.date < new Date().toISOString().split("T")[0],
+  );
 
   return (
     <div className="max-w-7xl mx-auto p-4">
@@ -72,7 +78,10 @@ const App = () => {
           <h2 className="text-2xl font-bold mb-2">Create a Game</h2>
           <form>
             <div className="mb-4">
-              <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="sport">
+              <label
+                className="block text-gray-700 text-sm font-bold mb-2"
+                htmlFor="sport"
+              >
                 Sport
               </label>
               <input
@@ -80,11 +89,16 @@ const App = () => {
                 id="sport"
                 type="text"
                 value={newGame.sport}
-                onChange={(e) => setNewGame({ ...newGame, sport: e.target.value })}
+                onChange={(e) =>
+                  setNewGame({ ...newGame, sport: e.target.value })
+                }
               />
             </div>
             <div className="mb-4">
-              <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="date">
+              <label
+                className="block text-gray-700 text-sm font-bold mb-2"
+                htmlFor="date"
+              >
                 Date
               </label>
               <input
@@ -92,11 +106,16 @@ const App = () => {
                 id="date"
                 type="date"
                 value={newGame.date}
-                onChange={(e) => setNewGame({ ...newGame, date: e.target.value })}
+                onChange={(e) =>
+                  setNewGame({ ...newGame, date: e.target.value })
+                }
               />
             </div>
             <div className="mb-4">
-              <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="time">
+              <label
+                className="block text-gray-700 text-sm font-bold mb-2"
+                htmlFor="time"
+              >
                 Time
               </label>
               <input
@@ -104,11 +123,16 @@ const App = () => {
                 id="time"
                 type="time"
                 value={newGame.time}
-                onChange={(e) => setNewGame({ ...newGame, time: e.target.value })}
+                onChange={(e) =>
+                  setNewGame({ ...newGame, time: e.target.value })
+                }
               />
             </div>
             <div className="mb-4">
-              <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="location">
+              <label
+                className="block text-gray-700 text-sm font-bold mb-2"
+                htmlFor="location"
+              >
                 Location
               </label>
               <input
@@ -116,11 +140,16 @@ const App = () => {
                 id="location"
                 type="text"
                 value={newGame.location}
-                onChange={(e) => setNewGame({ ...newGame, location: e.target.value })}
+                onChange={(e) =>
+                  setNewGame({ ...newGame, location: e.target.value })
+                }
               />
             </div>
             <div className="mb-4">
-              <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="playerThreshold">
+              <label
+                className="block text-gray-700 text-sm font-bold mb-2"
+                htmlFor="playerThreshold"
+              >
                 Player Threshold
               </label>
               <input
@@ -128,7 +157,12 @@ const App = () => {
                 id="playerThreshold"
                 type="number"
                 value={newGame.playerThreshold}
-                onChange={(e) => setNewGame({ ...newGame, playerThreshold: parseInt(e.target.value, 10) })}
+                onChange={(e) =>
+                  setNewGame({
+                    ...newGame,
+                    playerThreshold: parseInt(e.target.value, 10),
+                  })
+                }
               />
             </div>
             <button
@@ -149,7 +183,8 @@ const App = () => {
                 <li key={game.id}>
                   <div className="flex justify-between mb-2">
                     <span>
-                      {game.sport} at {game.location} on {game.date} at {game.time}
+                      {game.sport} at {game.location} on {game.date} at{" "}
+                      {game.time}
                     </span>
                     <span>
                       {game.players.length} / {game.playerThreshold} players
@@ -173,7 +208,8 @@ const App = () => {
                 <li key={game.id}>
                   <div className="flex justify-between mb-2">
                     <span>
-                      {game.sport} at {game.location} on {game.date} at {game.time}
+                      {game.sport} at {game.location} on {game.date} at{" "}
+                      {game.time}
                     </span>
                     <span>
                       {game.players.length} / {game.playerThreshold} players
@@ -197,7 +233,8 @@ const App = () => {
                 <li key={game.id}>
                   <div className="flex justify-between mb-2">
                     <span>
-                      {game.sport} at {game.location} on {game.date} at {game.time}
+                      {game.sport} at {game.location} on {game.date} at{" "}
+                      {game.time}
                     </span>
                     <span>
                       {game.players.length} / {game.playerThreshold} players
@@ -215,7 +252,10 @@ const App = () => {
             <h2 className="text-2xl font-bold mb-2">Join Game</h2>
             <form>
               <div className="mb-4">
-                <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="playerName">
+                <label
+                  className="block text-gray-700 text-sm font-bold mb-2"
+                  htmlFor="playerName"
+                >
                   Player Name
                 </label>
                 <input
